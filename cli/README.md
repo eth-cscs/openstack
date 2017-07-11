@@ -20,7 +20,7 @@ Password:
 1) 1237688701212123ab221e5cf9d59111 project1
 2) 12401230ebcd1121241234148306065a project2
 Please choose an option: 2
- * Selected project marvel_test: 12401230ebcd1121241234148306065a
+ * Selected project project2: 12401230ebcd1121241234148306065a
  * Environment ready for openstack CLI with scoped project: project2
 ```
 
