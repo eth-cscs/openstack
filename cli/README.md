@@ -10,7 +10,7 @@ $ docker run -it ubuntu
 # pip install -U python-openstackclient lxml oauthlib
 ```
 
-In order to load the environment, download and source the pollux.env file above. It should output something like this:
+In order to load the environment, download and source the [pollux.env](pollux.env) file above. It should output something like this:
 ```
 # source pollux.env
  * Creating environment for openstack CLI:
@@ -24,4 +24,4 @@ Please choose an option: 2
  * Environment ready for openstack CLI with scoped project: project2
 ```
 
-
+You can also use a parameter ```source pollux.env filter``` with the name of your project (or part of it) in order to avoid the menu from popping up, if that's what you want.
