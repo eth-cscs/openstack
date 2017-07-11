@@ -22,11 +22,14 @@ It should output something like this:
  * Creating environment for openstack CLI:
 Username: myusername
 Password: 
+[openstack --os-auth-type v3samlpassword token issue]
  * Got an unscoped token, preparing environment...
+[openstack project list]
 1) 1237688701212123ab221e5cf9d59111 project1
 2) 12401230ebcd1121241234148306065a project2
 Please choose an option: 2
  * Selected project project2: 12401230ebcd1121241234148306065a
+[openstack --os-project-id 12401230ebcd1121241234148306065a token issue]
  * Environment ready for openstack CLI with scoped project: project2
 ```
 
