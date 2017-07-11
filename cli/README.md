@@ -18,7 +18,6 @@ In order to load the environment, download and source the [pollux.env](pollux.en
 ```
 It should output something like this:
 ```
-# cd openstack/cli/
 # source pollux.env
  * Creating environment for openstack CLI:
 Username: myusername
