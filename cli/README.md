@@ -33,4 +33,4 @@ Please choose an option: 2
  * Environment ready for openstack CLI with scoped project: project2
 ```
 
-You can also use a parameter ```source pollux.env my_proj``` with the name of your project (or part of it) in order to avoid the menu from popping up, if that's what you want.
+You can also use a parameter ```source pollux.env my_proj``` with the name of your project (or part of it) in order to avoid the menu from popping up, if that's what you want. It works like a grep.
