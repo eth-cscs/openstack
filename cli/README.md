@@ -8,11 +8,15 @@ $ docker run -it ubuntu
 # apt-get update && apt-get install curl wget vim python-pip less python-pysaml2 libssl-dev iputils-ping git
 # pip install -U pip setuptools
 # pip install -U python-openstackclient lxml oauthlib
-# cd /root
-# git clone https://github.com/eth-cscs/openstack
 ```
 
-In order to load the environment, download and source the [pollux.env](pollux.env) file above. It should output something like this:
+In order to load the environment, download and source the [pollux.env](pollux.env) file above. 
+```
+# cd /root
+# git clone https://github.com/eth-cscs/openstack
+# cd openstack/cli/
+```
+It should output something like this:
 ```
 # cd openstack/cli/
 # source pollux.env
