@@ -1,7 +1,9 @@
 # CSCS OpenStack CLI
 
-A complete CLI Docker version can be obtained upon request, but it's relatively easy to make one by hand:
+Having the Openstack CLI working is relatively easy. You can choose between:
 
+## Option A:
+Creating a Docker container and installing everything inside
 ```
 $ docker pull ubuntu
 $ docker run -it ubuntu
@@ -10,15 +12,33 @@ $ docker run -it ubuntu
 # pip install -U python-openstackclient lxml oauthlib python-swiftclient
 ```
 
-In order to load the environment, download and source the [pollux.env](pollux.env) file above. 
+Then in order to load the environment, download and source the [pollux.env](pollux.env) file above. 
 ```
 # cd /root
 # git clone https://github.com/eth-cscs/openstack
-# cd openstack/cli/
+# source openstack/cli/pollux.env
 ```
-It should output something like this:
+
+## Option B
+Alternatively, you can also do this with python virtual environments:
 ```
-# source pollux.env
+$ virtualenv openstack_cli
+$ source openstack_cli/bin/activate
+$ pip install -U pip setuptools
+$ pip install -U python-openstackclient lxml oauthlib python-swiftclient
+# If you have problems, maybe your distribution is missing some packages. Please check the apt-get command above.
+
+```
+And then load the Pollux environment files:
+```
+$ cd openstack_cli
+$ git clone https://github.com/eth-cscs/openstack
+$ source openstack/cli/pollux.env
+```
+
+## Output should look like this
+```
+$ source pollux.env
  * Creating environment for openstack CLI:
 Username: myusername
 Password: 
