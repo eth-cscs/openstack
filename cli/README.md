@@ -2,8 +2,8 @@
 
 Having the Openstack CLI working is relatively easy. You can choose between:
 
-## Option A
-Creating a Docker container and installing everything inside
+## Option A: with Docker
+The idea is ti create a Docker container and install everything inside. You need to first install Docker and then do:
 ```
 $ docker pull ubuntu
 $ docker run -it ubuntu
@@ -20,8 +20,8 @@ Then in order to load the environment, download and source the [pollux.env](poll
 ```
 Now don't forget to commit your Docker image, from another shell, so that these changes are not lost: ```docker commit 123someid123 openstack_cli``` (you can get the ID with ```docker ps```). Otherwise you need to start from scratch next time you do a ```docker run```
 
-## Option B
-Alternatively, you can also do this with python virtual environments:
+## Option B: with a Virtualenv
+Alternatively, you can also do this with python virtual environments. You need to install python and virtualenv first, and then:
 ```
 $ virtualenv openstack_cli
 $ source openstack_cli/bin/activate
@@ -37,7 +37,7 @@ $ git clone https://github.com/eth-cscs/openstack
 $ source openstack/cli/pollux.env
 ```
 
-## Output should look like this
+## Loading the environment should look like this:
 ```
 $ source pollux.env
  * Creating environment for openstack CLI:
