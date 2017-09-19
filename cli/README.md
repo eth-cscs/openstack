@@ -9,7 +9,7 @@ $ docker pull ubuntu
 $ docker run -it ubuntu
 # apt-get update && apt-get install curl wget vim python-pip less python-pysaml2 libssl-dev iputils-ping git
 # pip install -U pip setuptools
-# pip install -U python-openstackclient lxml oauthlib python-swiftclient
+# pip install -U python-openstackclient lxml oauthlib python-swiftclient python-heatclient
 ```
 
 Then in order to load the environment, download and source the [pollux.env](pollux.env) file above. 
@@ -26,7 +26,7 @@ Alternatively, you can also do this with python virtual environments. You need t
 $ virtualenv openstack_cli
 $ source openstack_cli/bin/activate
 $ pip install -U pip setuptools
-$ pip install -U python-openstackclient lxml oauthlib python-swiftclient
+$ pip install -U python-openstackclient lxml oauthlib python-swiftclient python-heatclient
 # If you have problems, maybe your distribution is missing some packages. Please check the apt-get command above.
 
 ```
