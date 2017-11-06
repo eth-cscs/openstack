@@ -44,17 +44,23 @@ else:
 sess = session.Session(auth=auth)
 print "User info:", OS_USERNAME, sess.get_user_id()
 
-### To list user's projects:
-from keystoneclient.v3 import client
-ks = client.Client(session=sess, interface='public')
-projects = ks.projects.list(user=sess.get_user_id())
-print "Projects:", [t.name for t in projects]
-print "Project[0]:", projects[0]
+if 'OS_PROJECT_ID' in os.environ:
+  # The token we've got from the environment is already scoped
+  OS_PROJECT_ID = os.environ['OS_PROJECT_ID']
+else:
+  ### List user's projects:
+  from keystoneclient.v3 import client
+  ks = client.Client(session=sess, interface='public')
+  projects = ks.projects.list(user=sess.get_user_id())
+  print "Available projects:", [t.name for t in projects]
+  OS_PROJECT_ID = projects[0].id
+
+print "Selected project: ", OS_PROJECT_ID
 
 ### To list project's Swift containers (needs an scoped token):
 import swiftclient.client as swiftclient
-auth2 = v3.Token(auth_url=OS_AUTH_URL, token=sess.get_token(), project_id=projects[0].id)
+auth2 = v3.Token(auth_url=OS_AUTH_URL, token=sess.get_token(), project_id=OS_PROJECT_ID)
 sess2 = session.Session(auth=auth2)
-conn2 = swiftclient.Connection(session=sess2)
-resp_headers, containers = conn2.get_account()
+conn = swiftclient.Connection(session=sess2)
+resp_headers, containers = conn.get_account()
 print "Containers:", [container['name'] for container in containers]
