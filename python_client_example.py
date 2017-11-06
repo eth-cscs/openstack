@@ -29,6 +29,7 @@ OS_AUTH_URL = os.environ['OS_AUTH_URL'] if 'OS_AUTH_URL' in os.environ else 'htt
 OS_IDENTITY_PROVIDER = os.environ['OS_IDENTITY_PROVIDER'] if 'OS_IDENTITY_PROVIDER' in os.environ else 'cscskc'
 OS_IDENTITY_PROVIDER_URL = os.environ['OS_IDENTITY_PROVIDER_URL'] if 'OS_IDENTITY_PROVIDER_URL' in os.environ else 'https://kc.cscs.ch/auth/realms/cscs/protocol/saml/'
 OS_PROTOCOL = os.environ['OS_PROTOCOL'] if 'OS_PROTOCOL' in os.environ else 'mapped'
+OS_INTERFACE = os.environ['OS_INTERFACE'] if 'OS_INTERFACE' in os.environ else 'public'
 
 if 'OS_TOKEN' in os.environ:
   # We've already been authenticated. We can just set the right variables
@@ -50,7 +51,7 @@ if 'OS_PROJECT_ID' in os.environ:
 else:
   ### List user's projects:
   from keystoneclient.v3 import client
-  ks = client.Client(session=sess, interface='public')
+  ks = client.Client(session=sess, interface=OS_INTERFACE)
   projects = ks.projects.list(user=sess.get_user_id())
   print "Available projects:", [t.name for t in projects]
   OS_PROJECT_ID = projects[0].id
