@@ -30,12 +30,19 @@ OS_IDENTITY_PROVIDER = os.environ['OS_IDENTITY_PROVIDER'] if 'OS_IDENTITY_PROVID
 OS_IDENTITY_PROVIDER_URL = os.environ['OS_IDENTITY_PROVIDER_URL'] if 'OS_IDENTITY_PROVIDER_URL' in os.environ else 'https://kc.cscs.ch/auth/realms/cscs/protocol/saml/'
 OS_PROTOCOL = os.environ['OS_PROTOCOL'] if 'OS_PROTOCOL' in os.environ else 'mapped'
 
-### Authenticate user:
-user = getpass.getpass("Username: ")
-pw = getpass.getpass()
-auth = V3Saml2Password(auth_url=OS_AUTH_URL, identity_provider=OS_IDENTITY_PROVIDER, protocol=OS_PROTOCOL, identity_provider_url=OS_IDENTITY_PROVIDER_URL, username=user, password=pw)
+if 'OS_TOKEN' in os.environ:
+  # We've already been authenticated. We can just set the right variables
+  OS_TOKEN = os.environ['OS_TOKEN']
+  OS_USERNAME = os.environ['OS_USERNAME']
+  auth = v3.Token(auth_url=OS_AUTH_URL, token=OS_TOKEN)
+else: 
+  ### Authenticate user:
+  OS_USERNAME = getpass.getpass("Username: ")
+  pw = getpass.getpass()
+  auth = V3Saml2Password(auth_url=OS_AUTH_URL, identity_provider=OS_IDENTITY_PROVIDER, protocol=OS_PROTOCOL, identity_provider_url=OS_IDENTITY_PROVIDER_URL, username=OS_USERNAME, password=pw)
+
 sess = session.Session(auth=auth)
-print "User info:", user, sess.get_user_id()
+print "User info:", OS_USERNAME, sess.get_user_id()
 
 ### To list user's projects:
 from keystoneclient.v3 import client
