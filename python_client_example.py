@@ -56,11 +56,12 @@ else:
   OS_PROJECT_ID = projects[0].id
 
 print "Selected project: ", OS_PROJECT_ID
+# (Re-)Scope the session
+auth = v3.Token(auth_url=OS_AUTH_URL, token=sess.get_token(), project_id=OS_PROJECT_ID)
+sess = session.Session(auth=auth)
 
-### To list project's Swift containers (needs an scoped token):
+### To list project's Swift containers (needs an scoped token, or re-scope the previous one):
 import swiftclient.client as swiftclient
-auth2 = v3.Token(auth_url=OS_AUTH_URL, token=sess.get_token(), project_id=OS_PROJECT_ID)
-sess2 = session.Session(auth=auth2)
-conn = swiftclient.Connection(session=sess2)
+conn = swiftclient.Connection(session=sess)
 resp_headers, containers = conn.get_account()
 print "Containers:", [container['name'] for container in containers]
