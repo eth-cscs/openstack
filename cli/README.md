@@ -55,3 +55,7 @@ Please choose an option: 2
 ```
 
 You can also use a parameter ```source pollux.env my_proj``` with the name of your project (or part of it) in order to avoid the menu from popping up, if that's what you want. It works like a grep.
+
+## Remarks
+
+Please note that this code was developed and tested for bash shell. If you have different requirements, feel free to modify the code. 
