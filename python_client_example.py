@@ -27,7 +27,7 @@ import getpass, os
 from keystoneauth1.extras._saml2 import V3Saml2Password
 OS_AUTH_URL = os.environ['OS_AUTH_URL'] if 'OS_AUTH_URL' in os.environ else 'https://pollux.cscs.ch:13000/v3'
 OS_IDENTITY_PROVIDER = os.environ['OS_IDENTITY_PROVIDER'] if 'OS_IDENTITY_PROVIDER' in os.environ else 'cscskc'
-OS_IDENTITY_PROVIDER_URL = os.environ['OS_IDENTITY_PROVIDER_URL'] if 'OS_IDENTITY_PROVIDER_URL' in os.environ else 'https://kc.cscs.ch/auth/realms/cscs/protocol/saml/'
+OS_IDENTITY_PROVIDER_URL = os.environ['OS_IDENTITY_PROVIDER_URL'] if 'OS_IDENTITY_PROVIDER_URL' in os.environ else 'https://auth.cscs.ch/auth/realms/cscs/protocol/saml/'
 OS_PROTOCOL = os.environ['OS_PROTOCOL'] if 'OS_PROTOCOL' in os.environ else 'mapped'
 OS_INTERFACE = os.environ['OS_INTERFACE'] if 'OS_INTERFACE' in os.environ else 'public'
 
