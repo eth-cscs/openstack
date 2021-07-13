@@ -8,17 +8,17 @@ import getpass, os
 from keystoneauth1.identity import V3OidcPassword
 
 #Params
-OS_AUTH_URL = os.environ['OS_AUTH_URL'] if 'OS_AUTH_URL' in os.environ else 'https://pollux.cscs.ch:13000/v3'
+OS_AUTH_URL = os.environ['OS_AUTH_URL'] if 'OS_AUTH_URL' in os.environ else 'https://castor.cscs.ch:13000/v3'
 OS_IDENTITY_PROVIDER = os.environ['OS_IDENTITY_PROVIDER'] if 'OS_IDENTITY_PROVIDER' in os.environ else 'cscskc'
 OS_PROTOCOL = os.environ['OS_PROTOCOL'] if 'OS_PROTOCOL' in os.environ else 'openid'
 OS_INTERFACE = os.environ['OS_INTERFACE'] if 'OS_INTERFACE' in os.environ else 'public'
 OS_DISCOVERY_ENDPOINT ='https://auth.cscs.ch/auth/realms/cscs/.well-known/openid-configuration'
-OS_CLIENT_ID = 'pollux-prod'
-OS_CLIENT_SECRET = '82c7a379-f5ee-48c7-8a6b-7ee15557e28e'
+OS_CLIENT_ID = 'castor'
+OS_CLIENT_SECRET = 'c6cc606a-5ae4-4e3e-8a19-753ad265f521'
 OS_PROTOCOL = 'openid'
 OS_INTERFACE = 'public'
 OS_IDENTITY_API_VERSION=3
-OS_AUTH_URL = 'https://pollux.cscs.ch:13000/v3'
+OS_AUTH_URL = 'https://castor.cscs.ch:13000/v3'
 
 if 'OS_TOKEN' in os.environ:
   # We've already been authenticated. We can just set the right variables
