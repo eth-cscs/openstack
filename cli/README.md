@@ -34,12 +34,12 @@ And then load the Pollux environment files:
 ```
 $ cd openstack_cli
 $ git clone https://github.com/eth-cscs/openstack
-$ source openstack/cli/pollux.env
+$ source openstack/cli/castor.env
 ```
 
 ## Loading the environment should look like this:
 ```
-$ source pollux.env
+$ source castor.env
  * Creating environment for openstack CLI:
 Username: myusername
 Password: 
