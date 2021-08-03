@@ -12,11 +12,11 @@ $ docker run -it ubuntu
 # pip install -U python-openstackclient lxml oauthlib python-swiftclient python-heatclient
 ```
 
-Then in order to load the environment, download and source the [pollux.env](pollux.env) file above. 
+Then in order to load the environment, download and source the [castor.env](castor.env) file above. 
 ```
 # cd /root
 # git clone https://github.com/eth-cscs/openstack
-# source openstack/cli/pollux.env
+# source openstack/cli/castor.env
 ```
 Now don't forget to commit your Docker image, from another shell, so that these changes are not lost: ```docker commit 123someid123 openstack_cli``` (you can get the ID with ```docker ps```). Otherwise you need to start from scratch next time you do a ```docker run```
 
@@ -30,7 +30,7 @@ $ pip install -U python-openstackclient lxml oauthlib python-swiftclient python-
 # If you have problems, maybe your distribution is missing some packages. Please check the apt-get command above.
 
 ```
-And then load the Pollux environment files:
+And then load the Castor environment files:
 ```
 $ cd openstack_cli
 $ git clone https://github.com/eth-cscs/openstack
@@ -54,7 +54,7 @@ Please choose an option: 2
  * Environment ready for openstack CLI with scoped project: project2
 ```
 
-You can also use a parameter ```source pollux.env my_proj``` with the name of your project (or part of it) in order to avoid the menu from popping up, if that's what you want. It works like a grep.
+You can also use a parameter ```source castor.env my_proj``` with the name of your project (or part of it) in order to avoid the menu from popping up, if that's what you want. It works like a grep.
 
 ## Remarks
 
